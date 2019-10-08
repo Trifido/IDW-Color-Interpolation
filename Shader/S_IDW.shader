@@ -34,6 +34,7 @@
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+				float3 worldPos : TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -44,6 +45,7 @@
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
 
@@ -51,7 +53,7 @@
             {
 				fixed4 col;
 				
-				float step = IDWAverage(i.vertex);
+				float step = IDWAverage(i.worldPos);
 				col.rgb = GradientColor(step);
 				col.a = _Alpha;
 				//col *= tex2D(_MainTex, i.uv);

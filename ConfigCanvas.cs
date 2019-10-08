@@ -35,7 +35,7 @@ public class ConfigCanvas : MonoBehaviour
             arrayCoordsWeight[i] = sensors[i].GetCoordWeight();
         }
 
-        m_IDW.SetInt("_Points", sensors.Count);
+        m_IDW.SetInt("_LengthSensor", sensors.Count);
         m_IDW.SetFloat("P", smoothness);
         m_IDW.SetVectorArray("_CoordWeightSensor", arrayCoordsWeight);
     }
