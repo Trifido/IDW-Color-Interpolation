@@ -23,7 +23,7 @@ public class ConfigCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetShaderUniforms();
     }
 
     void SetShaderUniforms()

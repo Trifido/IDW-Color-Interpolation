@@ -20,7 +20,7 @@ public class Sensor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CoordWeight = new Vector4(transform.position.x, transform.position.y, transform.position.z, WeightValue);
     }
 
     public Vector4 GetCoordWeight()
